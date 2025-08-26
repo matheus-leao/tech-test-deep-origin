@@ -24,8 +24,8 @@ describe('Product Tests', () => {
             })
           })
         })
-        it('When I make a get request with 5 limit, should return 5 products', () => {
-          const limitExpected = 5;
+        it('When I make a get request with 1 limit, should return 1 products', () => {
+          const limitExpected = 1;
           cy.request({
             url: '/products',
             method: 'GET',
@@ -38,7 +38,23 @@ describe('Product Tests', () => {
             expect(producResponseBody.products.length).to.eq(limitExpected)
           })
         })
-
+        it('When I make a get request with 1 of limit and skip 1, should return the product with id 2', () => {
+          const limitExpected = 1;
+          const skipExpected = 1
+          cy.request({
+            url: '/products',
+            method: 'GET',
+            qs: {
+              limit: limitExpected,
+              skip: skipExpected
+            }
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            const producResponseBody = response.body as ProductResponseBody;
+            expect(producResponseBody.products.length).to.eq(limitExpected)
+            expect(producResponseBody.products[0].id).to.eq(2)
+          })
+        })
 
     })
 })
