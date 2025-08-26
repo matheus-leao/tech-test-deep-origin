@@ -23,8 +23,22 @@ describe('Product Tests', () => {
               expect(response.body).to.deep.equal(expectedGetResponse)
             })
           })
-
         })
+        it('When I make a get request with 5 limit, should return 5 products', () => {
+          const limitExpected = 5;
+          cy.request({
+            url: '/products',
+            method: 'GET',
+            qs: {
+              limit: limitExpected
+            }
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            const producResponseBody = response.body as ProductResponseBody;
+            expect(producResponseBody.products.length).to.eq(limitExpected)
+          })
+        })
+
 
     })
 })
