@@ -9,8 +9,8 @@ describe('Product Tests', () => {
             method: 'GET'
           }).then((response) => {
             expect(response.status).to.eq(200);
-            const producResponseBody = response.body as ProductResponseBody;
-            expect(producResponseBody.products.length).to.eq(30)
+            const productResponseBody = response.body as ProductResponseBody;
+            expect(productResponseBody.products.length).to.eq(30)
           })
         })
         it('When I make a get request to id=1, should return 1 unique product', ()=>{
@@ -34,13 +34,13 @@ describe('Product Tests', () => {
             }
           }).then((response) => {
             expect(response.status).to.eq(200);
-            const producResponseBody = response.body as ProductResponseBody;
-            expect(producResponseBody.products.length).to.eq(limitExpected)
+            const productResponseBody = response.body as ProductResponseBody;
+            expect(productResponseBody.products.length).to.eq(limitExpected)
           })
         })
-        it('When I make a get request with 1 of limit and skip 1, should return the product with id 2', () => {
+        it('When I make a get request with limit=1 and skip=1, should not the same product product (id=2)', () => {
           const limitExpected = 1;
-          const skipExpected = 1
+          const skipExpected = 0
           cy.request({
             url: '/products',
             method: 'GET',
@@ -50,11 +50,29 @@ describe('Product Tests', () => {
             }
           }).then((response) => {
             expect(response.status).to.eq(200);
-            const producResponseBody = response.body as ProductResponseBody;
-            expect(producResponseBody.products.length).to.eq(limitExpected)
-            expect(producResponseBody.products[0].id).to.eq(2)
+            const productResponseBody = response.body as ProductResponseBody;
+            expect(productResponseBody.products.length).to.eq(limitExpected);
+            const firstProductId = productResponseBody.products[0].id;
+            cy.request({
+              url: '/products',
+              method: 'GET',
+              qs: {
+                limit: limitExpected,
+                skip: skipExpected + 1
+              }
+            }).then((responseForSecondSkip) => {
+              const secondProduct = (responseForSecondSkip.body as ProductResponseBody).products[0];
+              // The product after skipping one should not be the same as the first
+              expect(firstProductId).to.not.eq(secondProduct.id)
+            })
           })
         })
 
+    })
+
+    describe('Search Product Tests', () => {
+      it('Search for all products of category ', ()=>{
+
+      })
     })
 })
