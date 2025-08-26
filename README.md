@@ -11,3 +11,8 @@ Submission:
 Kindly submit the completed task via a GitHub repository link.
 
 ---
+
+Development:
+Create a Cypress + Typescript project and create api tests following the VADER heuristic.
+
+Step 1 - Create the project
