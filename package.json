@@ -1,7 +1,15 @@
 {
+  "name": "tech-test-deep-origin",
+  "version": "1.0.0",
+  "author": "Matheus Leao",
+  "description": "This repository was created to develop the technical test for the Lead QA Automation Engineer at Deep Origin.",
+  "scripts": {
+    "cy:open": "npx cypress open"
+  },
   "devDependencies": {
     "@types/cypress": "^0.1.6",
     "@types/mocha": "^10.0.10",
+    "@types/node": "^24.3.0",
     "typescript": "^5.9.2"
   },
   "dependencies": {
