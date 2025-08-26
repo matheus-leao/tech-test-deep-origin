@@ -15,6 +15,5 @@ Kindly submit the completed task via a GitHub repository link.
 **Development**:
 Create a Cypress + Typescript project and create api tests following the VADER heuristic.
 
-Step 1 - Create the project
-Run the command to install cypress
-npm install --global cypress --save-dev
+Create the project using cypress documentation
+
