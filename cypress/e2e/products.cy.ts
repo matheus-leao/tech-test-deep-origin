@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { ProductResponseBody as ProductResponseBody } from '../support/model/productModel';
 
 describe('Product Tests', () => {
-    describe('GET /products', ()=>{
+    describe('Get products', ()=>{
         it('When I make a get request, should return 30 products', () => {
           cy.request({
             url: '/products',
@@ -70,7 +70,36 @@ describe('Product Tests', () => {
 
     })
 
-    describe('Search Product Tests', () => {
+    describe('Get Category List Tests', ()=>{
+      it('List all product category', ()=>{
+        cy.fixture("requests/get/whenIListAllProductCategory").then((listOfCategories)=>{
+          cy.request({
+              url: '/products/category-list',
+              method: 'GET'
+            }).then((response) => {
+              expect(response.status).to.eq(200);
+              expect(listOfCategories).to.deep.equal(response.body)
+            })
+        }) 
+      })
+    })
+
+    describe('Get All Product detailed Category Tests', ()=>{
+      it('List all product category', ()=>{
+        cy.fixture("requests/get/whenIListAllDetailedProductCategory").then((listOfDetailedCategories)=>{
+          cy.request({
+              url: '/products/categories',
+              method: 'GET'
+            }).then((response) => {
+              expect(response.status).to.eq(200);
+              console.log(JSON.stringify(response.body))
+              expect(listOfDetailedCategories).to.deep.equal(response.body)
+            })
+        }) 
+      })
+    })
+
+    describe('Get Search Product Tests', () => {
       it('Search for all products of category ', ()=>{
 
       })
