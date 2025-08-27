@@ -9,6 +9,7 @@ describe("Product Tests", () => {
         expect(productResponseBody.products.length).to.eq(30);
       });
     });
+
     it("When I make a get request to id=1, should return 1 unique product", () => {
       cy.fixture("requests/get/whenIMakeGetRequestToId1.json").then(
         (expectedGetResponse) => {
@@ -22,6 +23,7 @@ describe("Product Tests", () => {
         },
       );
     });
+
     it("When I make a get request with 1 limit, should return 1 products", () => {
       const limitExpected = 1;
       cy.getProducts({ limit: limitExpected }).then((response) => {
@@ -30,6 +32,7 @@ describe("Product Tests", () => {
         expect(productResponseBody.products.length).to.eq(limitExpected);
       });
     });
+    
     it("When I make a get request with limit=1 and skip=1, should not the same product product (id=2)", () => {
       const limitExpected = 1;
       const skipExpected = 0;
@@ -70,7 +73,7 @@ describe("Product Tests", () => {
   });
 
   describe("Get All Product detailed Category Tests", () => {
-    it("List all product category", () => {
+    it("List all detailed product category", () => {
       cy.fixture("requests/get/whenIListAllDetailedProductCategory").then(
         (listOfDetailedCategories) => {
           cy.request({
@@ -84,6 +87,21 @@ describe("Product Tests", () => {
         },
       );
     });
+    
+    // https://github.com/matheus-leao/tech-test-deep-origin/issues/8
+    it.skip("List all product category", () => {
+          cy.request({
+            url: "/products/categories",
+            method: "GET",
+            qs: {
+              limit: 1
+            }
+          }).then((response) => {
+            expect(response.status).to.eq(200);
+            expect(response.body.length).to.be.eq(1)
+          });
+        },
+    );
   });
 
   describe("Get Search Product Tests", () => {
