@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { ProductResponseBody as ProductResponseBody } from '../support/model/productModel';
 
 describe('Product Tests', () => {
