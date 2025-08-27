@@ -24,10 +24,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add('getProducts', (options = {}) => {
-    return cy.request({
-      url: `/products/`,
-      method: 'GET',
-      qs: options
-    });
+Cypress.Commands.add("getProducts", (options = {}) => {
+  return cy.request({
+    url: `/products/`,
+    method: "GET",
+    qs: options,
+  });
 });
