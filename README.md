@@ -1,7 +1,8 @@
 # tech-test-deep-origin
+
 This repository was created to develop the technical test for the Lead QA Automation Engineer at Deep Origin.
 
-Main objective shared by Mariana Romaniv: 
+Main objective shared by Mariana Romaniv:
 
 **Task**:
 Please write API tests for the Product API using TypeScript and Cypress.
@@ -16,4 +17,3 @@ Kindly submit the completed task via a GitHub repository link.
 Create a Cypress + Typescript project and create api tests following the VADER heuristic.
 
 Create the project using cypress documentation
-

@@ -4,7 +4,8 @@
   "author": "Matheus Leao",
   "description": "This repository was created to develop the technical test for the Lead QA Automation Engineer at Deep Origin.",
   "scripts": {
-    "cy:open": "npx cypress open"
+    "cy:open": "npx cypress open",
+    "prettier": "npx prettier . --write"
   },
   "devDependencies": {
     "@types/chai": "^4.3.11",
@@ -16,6 +17,7 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "mocha": "^10.2.0"
+    "mocha": "^10.2.0",
+    "prettier": "^3.6.2"
   }
 }
