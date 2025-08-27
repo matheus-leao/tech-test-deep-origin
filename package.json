@@ -5,6 +5,8 @@
   "description": "This repository was created to develop the technical test for the Lead QA Automation Engineer at Deep Origin.",
   "scripts": {
     "cy:open": "npx cypress open",
+    "cy:run": "npx cypress run",
+    "cy:run-cloud": "npx dotenv -e .env -- cypress run --record --key $CYPRESS_CLOUD_TOKEN",
     "prettier": "npx prettier . --write"
   },
   "devDependencies": {
