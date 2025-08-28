@@ -1,11 +1,11 @@
-export interface ProductResponseBody {
-  products: Product[];
+export interface ProductResponseBodyDto {
+  products: ProductDto[];
   total: number;
   skip: number;
   limit: number;
 }
 
-export interface Product {
+export interface ProductDto {
   id: number;
   title: string;
   description: string;
@@ -18,11 +18,11 @@ export interface Product {
   brand: string;
   sku: string;
   weight: number;
-  dimensions: Dimensions;
+  dimensions: DimensionsDto;
   warrantyInformation: string;
   shippingInformation: string;
   availabilityStatus: string;
-  reviews: Review[];
+  reviews: Dto[];
   returnPolicy: string;
   minimumOrderQuantity: number;
   meta: Meta;
@@ -30,13 +30,13 @@ export interface Product {
   thumbnail: string;
 }
 
-export interface Dimensions {
+export interface DimensionsDto {
   width: number;
   height: number;
   depth: number;
 }
 
-export interface Review {
+export interface Dto {
   rating: number;
   comment: string;
   date: string;
