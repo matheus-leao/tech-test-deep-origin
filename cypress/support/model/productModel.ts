@@ -6,28 +6,28 @@ export interface ProductResponseBodyDto {
 }
 
 export interface ProductDto {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   category: string;
   price: number;
-  discountPercentage: number;
-  rating: number;
-  stock: number;
-  tags: string[];
-  brand: string;
-  sku: string;
-  weight: number;
-  dimensions: DimensionsDto;
-  warrantyInformation: string;
-  shippingInformation: string;
-  availabilityStatus: string;
-  reviews: Dto[];
-  returnPolicy: string;
-  minimumOrderQuantity: number;
-  meta: Meta;
-  images: string[];
-  thumbnail: string;
+  discountPercentage?: number;
+  rating?: number;
+  stock?: number;
+  tags?: string[];
+  brand?: string;
+  sku?: string;
+  weight?: number;
+  dimensions?: DimensionsDto;
+  warrantyInformation?: string;
+  shippingInformation?: string;
+  availabilityStatus?: string;
+  reviews?: ReviewDto[];
+  returnPolicy?: string;
+  minimumOrderQuantity?: number;
+  meta?: MetaDto;
+  images?: string[];
+  thumbnail?: string;
 }
 
 export interface DimensionsDto {
@@ -36,7 +36,7 @@ export interface DimensionsDto {
   depth: number;
 }
 
-export interface Dto {
+export interface ReviewDto {
   rating: number;
   comment: string;
   date: string;
@@ -44,7 +44,7 @@ export interface Dto {
   reviewerEmail: string;
 }
 
-export interface Meta {
+export interface MetaDto {
   createdAt: string;
   updatedAt: string;
   barcode: string;
