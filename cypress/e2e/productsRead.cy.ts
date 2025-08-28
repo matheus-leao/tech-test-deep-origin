@@ -32,7 +32,7 @@ describe("Product Tests", () => {
         expect(productResponseBody.products.length).to.eq(limitExpected);
       });
     });
-    
+
     it("When I make a get request with limit=1 and skip=1, should not the same product product (id=2)", () => {
       const limitExpected = 1;
       const skipExpected = 0;
@@ -86,21 +86,20 @@ describe("Product Tests", () => {
         },
       );
     });
-    
+
     // https://github.com/matheus-leao/tech-test-deep-origin/issues/8
     it.skip("List all product category", () => {
-          cy.request({
-            url: "/products/categories",
-            method: "GET",
-            qs: {
-              limit: 1
-            }
-          }).then((response) => {
-            expect(response.status).to.eq(200);
-            expect(response.body.length).to.be.eq(1)
-          });
+      cy.request({
+        url: "/products/categories",
+        method: "GET",
+        qs: {
+          limit: 1,
         },
-    );
+      }).then((response) => {
+        expect(response.status).to.eq(200);
+        expect(response.body.length).to.be.eq(1);
+      });
+    });
   });
 
   describe("Get Search Product Tests", () => {
