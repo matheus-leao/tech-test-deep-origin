@@ -1,11 +1,11 @@
-import { ProductResponseBody as ProductResponseBody } from "../support/model/productModel";
+import { ProductResponseBodyDto as ProductResponseBodyDto } from "../support/model/productModel";
 
 describe("Product Tests", () => {
   describe("Get products", () => {
     it("When I make a get request, should return 30 products", () => {
       cy.getProducts().then((response) => {
         expect(response.status).to.eq(200);
-        const productResponseBody = response.body as ProductResponseBody;
+        const productResponseBody = response.body as ProductResponseBodyDto;
         expect(productResponseBody.products.length).to.eq(30);
       });
     });
@@ -28,7 +28,7 @@ describe("Product Tests", () => {
       const limitExpected = 1;
       cy.getProducts({ limit: limitExpected }).then((response) => {
         expect(response.status).to.eq(200);
-        const productResponseBody = response.body as ProductResponseBody;
+        const productResponseBody = response.body as ProductResponseBodyDto;
         expect(productResponseBody.products.length).to.eq(limitExpected);
       });
     });
@@ -39,13 +39,13 @@ describe("Product Tests", () => {
       cy.getProducts({ limit: limitExpected, skip: skipExpected }).then(
         (response) => {
           expect(response.status).to.eq(200);
-          const productResponseBody = response.body as ProductResponseBody;
+          const productResponseBody = response.body as ProductResponseBodyDto;
           expect(productResponseBody.products.length).to.eq(limitExpected);
           const firstProductId = productResponseBody.products[0].id;
           cy.getProducts({ limit: limitExpected, skip: skipExpected + 1 }).then(
             (responseForSecondSkip) => {
               const secondProduct = (
-                responseForSecondSkip.body as ProductResponseBody
+                responseForSecondSkip.body as ProductResponseBodyDto
               ).products[0];
               // The product after skipping one should not be the same as the first
               expect(firstProductId).to.not.eq(secondProduct.id);
@@ -81,7 +81,6 @@ describe("Product Tests", () => {
             method: "GET",
           }).then((response) => {
             expect(response.status).to.eq(200);
-            console.log(JSON.stringify(response.body));
             expect(listOfDetailedCategories).to.deep.equal(response.body);
           });
         },
