@@ -11,12 +11,10 @@ describe("Product Tests", () => {
     });
 
     it("When I make a get request to id=1, should return 1 unique product", () => {
-      cy.fixture("requests/get/whenIMakeGetRequestToId1.json").then(
+      cy.fixture("requests/product/read/whenIMakeGetRequestToId1.json").then(
         (expectedGetResponse) => {
-          cy.request({
-            url: `/products/${expectedGetResponse.id}`,
-            method: "GET",
-          }).then((response) => {
+          cy.getProduct(expectedGetResponse.id)
+          .then((response) => {
             expect(response.status).to.eq(200);
             expect(response.body).to.deep.equal(expectedGetResponse);
           });
@@ -58,7 +56,7 @@ describe("Product Tests", () => {
 
   describe("Get Category List Tests", () => {
     it("List all product category", () => {
-      cy.fixture("requests/get/whenIListAllProductCategory").then(
+      cy.fixture("requests/product/read/whenIListAllProductCategory").then(
         (listOfCategories) => {
           cy.request({
             url: "/products/category-list",

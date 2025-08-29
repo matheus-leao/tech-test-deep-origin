@@ -1,7 +1,7 @@
 
   describe("Get All Product detailed Category Tests", () => {
     it("List all detailed product category", () => {
-      cy.fixture("requests/get/whenIListAllDetailedProductCategory").then(
+      cy.fixture("requests/product/read/whenIListAllDetailedProductCategory").then(
         (listOfDetailedCategories) => {
           cy.request({
             url: "/products/categories",
