@@ -19,10 +19,8 @@ describe("Delete products", () => {
   });
 
   it("When I try to deleta a non-existent product, should return 404", () => {
-    cy.getProducts().then((getProductsResponse) => {
-      const productResponseDto: ProductResponseBodyDto =
-        getProductsResponse.body;
-      const nonExistentProductId = productResponseDto.total + 1;
+    cy.getTotalProducts().then((totalOfProducts) => {
+      const nonExistentProductId = totalOfProducts + 1;
       cy.request({
         url: `/products/${nonExistentProductId}`,
         method: "DELETE",
