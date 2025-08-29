@@ -1,6 +1,13 @@
 name: Cypress  CI
 
 on:
+  workflow_dispatch:
+    inputs:
+      branch_name:
+        description: 'Branch to run the workflow on'
+        required: true
+        default: 'main'
+        type: string
   push:
     branches: ["main"]
   pull_request:
