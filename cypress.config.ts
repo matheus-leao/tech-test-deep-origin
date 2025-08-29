@@ -6,7 +6,7 @@ export default defineConfig({
       // implement node event listeners here
     },
     baseUrl: "https://dummyjson.com/",
-    responseTimeout: 1000
+    responseTimeout: 2000
   },
   projectId: "2hfua5",
 });
