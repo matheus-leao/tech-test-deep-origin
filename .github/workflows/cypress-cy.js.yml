@@ -22,7 +22,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - name: Run Cypress test 
+      - name: Run Cypress test
         uses: cypress-io/github-action@v6.5.0
         if: ${{ github.ref != 'refs/heads/main' }}
 
@@ -31,4 +31,3 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
         with:
           record: ${{secrets.CYPRESS_CLOUD_TOKEN}}
-          
