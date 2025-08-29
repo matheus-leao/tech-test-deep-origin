@@ -23,11 +23,13 @@ Cypress.Commands.add("getProduct", (productId, options = {}) => {
   });
 });
 
-Cypress.Commands.add("getTotalProducts", () =>{
-  return cy.request({
-    url: `/products/`,
-    method: "GET",
-  }).then((response)=>{
-    return response.body.total;
-  });
-})
+Cypress.Commands.add("getTotalProducts", () => {
+  return cy
+    .request({
+      url: `/products/`,
+      method: "GET",
+    })
+    .then((response) => {
+      return response.body.total;
+    });
+});
