@@ -1,5 +1,5 @@
 import { faker } from "@faker-js/faker";
-import { ProductDto } from "../support/model/productModel";
+import { ProductDto } from "../../support/model/productModel";
 
 describe("Product Creation", () => {
   it("When I create a product with all obligatory data, should return 201", () => {
