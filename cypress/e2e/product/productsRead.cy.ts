@@ -53,18 +53,20 @@ describe("Product Tests", () => {
     });
 
     it("When I make a get product request to an non-existent product Id, should return 301", () => {
-      cy.getTotalProducts().then((totalProducts)=>{
-        const nonExistentProductId = totalProducts+1
+      cy.getTotalProducts().then((totalProducts) => {
+        const nonExistentProductId = totalProducts + 1;
         cy.request({
           url: `/products/${nonExistentProductId}/`,
           method: "GET",
           failOnStatusCode: true,
-          followRedirect: false
+          followRedirect: false,
         }).then((response) => {
           expect(response.status).to.eq(301);
-          expect(response.body).to.contains(`Moved Permanently. Redirecting to /products/${nonExistentProductId}`);
+          expect(response.body).to.contains(
+            `Moved Permanently. Redirecting to /products/${nonExistentProductId}`,
+          );
         });
-      })
+      });
     });
   });
 
