@@ -139,6 +139,8 @@ The CI pipeline was created using GitHub Actions. The pipeline configuration is 
 
 It is as important to run our tests as it is to publish the report in a way that can generate actions in the daily basis of the development team. That's why we can keep tracking the evolution of the tests and their historic run here on [Cypress Cloud Report](https://cloud.cypress.io/projects/2hfua5/runs?branches=%5B%5D&committers=%5B%5D&flaky=%5B%5D&page=1&status=%5B%5D&tags=%5B%5D&tagsMatch=ANY).
 
+[![tech-test-deep-origin](https://img.shields.io/endpoint?url=https://cloud.cypress.io/badge/detailed/2hfua5/main&style=social&logo=cypress)](https://cloud.cypress.io/projects/2hfua5/runs)
+
 ---
 
 ## 📚 Future Improvements
