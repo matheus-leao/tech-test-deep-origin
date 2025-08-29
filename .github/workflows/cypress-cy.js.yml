@@ -22,14 +22,13 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
       - run: npm ci
-      - run: npm run build --if-present
-      - name: Run Cypress tests
-        run: npx cypress run
-        if: ${{ github.ref == 'refs/heads/main' }}
+      - name: Run Cypress test 
+        uses: cypress-io/github-action@v6.5.0
+        if: ${{ github.ref != 'refs/heads/main' }}
 
       - name: Run Cypress test and publish on Cypress Cloud
         uses: cypress-io/github-action@v6.5.0
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ github.ref == 'refs/heads/main' }}
         with:
           record: ${{secrets.CYPRESS_CLOUD_TOKEN}}
           
