@@ -1,8 +1,8 @@
-# tech-test-deep-origin
+# Technical Test to Deep Origin 
 
-This repository was created to develop the technical test for the Lead QA Automation Engineer at Deep Origin.
+This repository was created to develop the technical test for the Lead QA Automation Engineer position at Deep Origin.
 
-Main objective shared by Mariana Romaniv:
+Main objective:
 
 **Task**:
 Please write API tests for the Product API using TypeScript and Cypress.
@@ -18,23 +18,15 @@ Create a Cypress + Typescript project and create api tests following the VADER h
 
 Libraries in use:
 
-- Cypress like motor of the framework, used to manage, orchestrate and generate reports from the tests.
-- Mocha is used to setup typescript reference and integration with cypress.
-- Chai to improve and optimize the assertions.
-- Prettier to make the code more readable and "pretty".
+- Cypress
+- Mocha 
+- Chai
+- Faker
+- Prettier
 
 ---
 
-How to use it?
+**Strategy**:
+During this project, I used 2 heuristics to guide the test strategy defined:
 
-1. Clone the repo
-2. Run the command `npm install` to install the dependencies
-3. Run the command `npm run cy:open` to open cypress to watch the tests
-
-How to run on cypress cloud?
-
-1. Clone the repo
-2. Run the command `npm install` to install the dependencies
-3. On the root of project create an folder ".vscode" and open the folder
-4. Create a file .env with your cypress cloud token <code> cypress-cloud-token=yourTokenHere </code>
-5. Run the command `npm run cy:run-cloud` to run your tests and generate a report at Cypress cloud.
+1. CRUD
