@@ -55,7 +55,7 @@ describe("Product Update", () => {
     });
   });
 
-  it("When I update the title and description of a product, should return 200 - PUT", () => {
+  it("When I update the title and description of a product, should return 200 - PATCH", () => {
     const newTitle = faker.lorem.words(2);
     const newDescription = faker.lorem.paragraph(2);
     const productId = 2;
@@ -72,5 +72,27 @@ describe("Product Update", () => {
       expect(updatedProduct.title).to.be.equal(newTitle);
       expect(updatedProduct.description).to.be.equal(newDescription);
     });
+  });
+
+  it("When I try to update the title of a non-existent product, should return 404 - PUT", () => {
+    cy.getTotalProducts().then((totalOfProducts) => {
+      const nonExistentProductId = totalOfProducts + 1;
+      const newTitle = faker.lorem.words(2);
+      cy.request({
+        url: `/products/${nonExistentProductId}`,
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: { title: newTitle },
+        failOnStatusCode: false,
+      }).then((response) => {
+        expect(response.status).to.eq(404);
+        expect(response.body).to.deep.include({
+          message: `Product with id '${nonExistentProductId}' not found`,
+        });
+      });
+    });
+
   });
 });
