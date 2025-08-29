@@ -28,5 +28,8 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Run Cypress test and publish on Cypress Cloud
-        run: npx cypress run --record --key ${{secrets.CYPRESS_CLOUD_TOKEN}}
+        uses: cypress-io/github-action@v6.5.0
         if: ${{ github.ref != 'refs/heads/main' }}
+        with:
+          record: ${{secrets.CYPRESS_CLOUD_TOKEN}}
+          
