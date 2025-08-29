@@ -28,5 +28,5 @@ jobs:
         if: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Run Cypress test and publish on Cypress Cloud
-        run: npx dotenv -e .env -- cypress run --record --key ${{ secrets.CYPRESS_CLOUD_TOKEN }}
+        run: npx cypress run --record --key ${{secrets.CYPRESS_CLOUD_TOKEN}}
         if: ${{ github.ref != 'refs/heads/main' }}
