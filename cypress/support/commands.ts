@@ -1,7 +1,7 @@
 declare namespace Cypress {
   interface Chainable {
     getProducts(options?: object): Chainable<Response<any>>;
-    getProduct(productId:number, options?: object): Chainable<Response<any>>;
+    getProduct(productId: number, options?: object): Chainable<Response<any>>;
   }
 }
 
