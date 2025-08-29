@@ -54,7 +54,7 @@ To run the tests and record the results on Cypress Cloud, you need to set up a `
    ```
 3. Run the following command:
    ```bash
-   pnpm cy:run-cloud
+   npm run cy:run-cloud
    ```
 
 ---
@@ -140,3 +140,12 @@ The CI pipeline was created using GitHub Actions. The pipeline configuration is 
 It is as important to run our tests as it is to publish the report in a way that can generate actions in the daily basis of the development team. That's why we can keep tracking the evolution of the tests and their historic run here on [Cypress Cloud Report](https://cloud.cypress.io/projects/2hfua5/runs?branches=%5B%5D&committers=%5B%5D&flaky=%5B%5D&page=1&status=%5B%5D&tags=%5B%5D&tagsMatch=ANY).
 
 ---
+
+## 📚 Future Improvements
+
+- **Custom Timeouts:** Currently, all tests adhere to a non-functional requirement where an API request will fail if it takes longer than 2 seconds. In the future, we can introduce custom timeouts for specific API requests that are expected to take longer. This can be configured in `cypress.config.ts`.
+
+- **Command Splitting:** As the project currently focuses on the product API, all Cypress commands are in a single file. In a larger project, these commands should be split into different files to follow the Single Responsibility Principle.
+
+- **Authentication:** The product endpoints do not currently implement any authentication method. The tests are structured to be easily updated to use Basic or Bearer token authentication, following the Singleton design pattern for token management.
+
