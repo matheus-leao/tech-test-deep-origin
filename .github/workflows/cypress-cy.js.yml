@@ -1,4 +1,4 @@
-name: Cypress  CI
+name: Cypress CI
 
 on:
   workflow_dispatch:
@@ -34,6 +34,6 @@ jobs:
         with:
           record: true
           parallel: false
-          env:
-            CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
