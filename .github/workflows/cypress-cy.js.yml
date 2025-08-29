@@ -25,3 +25,8 @@ jobs:
       - run: npm run build --if-present
       - name: Run Cypress tests
         run: npx cypress run
+        if: eq(!variables['Build.SourceBranch'], 'refs/heads/main')
+
+      - name: Run Cypress test and publish on Cypress Cloud
+        run: npm run cy:run-cloud
+        if: eq(variables['Build.SourceBranch'], 'refs/heads/main')
